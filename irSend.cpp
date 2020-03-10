@@ -68,6 +68,7 @@ void  IRsend::enableIROut (int khz)
 	// CS2  = 000: no prescaling
 	// The top value for the timer.  The modulation frequency will be SYSCLOCK / 2 / OCR2A.
 	TIMER_CONFIG_KHZ(khz);
+	delay(20);
 #endif
 }
 
@@ -82,7 +83,7 @@ void IRsend::custom_delay_usec(unsigned long uSecs) {
       while ( micros() > start ) {} // wait until overflow
     }
     while ( micros() < endMicros ) {} // normal wait
-  } 
+  }
   //else {
   //  __asm__("nop\n\t"); // must have or compiler optimizes out
   //}
